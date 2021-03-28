@@ -8,18 +8,25 @@ header {
   box-shadow: 0 2px 2px #00000069;
   background-color: #ca1cca;
 }
-header .navigation {
+header .navigation-link {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 1;
 }
-header .navigation .active {
+header .navigation-link .active {
   color: blue;
 }
 
 main {
   min-height: 50rem;
   padding: 2rem 0;
+}
+main Paper {
+  padding: 20rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
 
 footer {

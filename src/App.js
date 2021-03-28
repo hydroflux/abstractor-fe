@@ -5,14 +5,12 @@ import Footer from './containers/footer/Footer';
 import Main from './containers/main/Main';
 
 import Home from './containers/main/Home';
-import Submit from './containers/main/Submit';
 import Review from './containers/main/Review';
 
 import { useState } from 'react'
+import CreateAbstraction from './components/CreateAbstraction';
 
 function App() {
-
-  // const backendURL = `http://localhost:8000`
 
   const [ abstraction , setAbstraction ] = useState({})
 
@@ -21,7 +19,7 @@ function App() {
 
   const routes = [
     { title: `Home`, path: `/home`, component: Home },
-    { title: `Submit`, path: `/submit`, component: Submit },
+    { title: `Create`, path: `/submit`, component: CreateAbstraction, abstraction, setAbstraction },
     { title: `Review`, path: `/review`, component: Review }
   ]
 
@@ -32,8 +30,6 @@ function App() {
         toggleLogin={toggleLogin}
         loggedIn={loggedIn}
         routes={routes}
-        setAbstraction={setAbstraction}
-        abstract={abstraction}
       />
       <Footer/>
     </div>

@@ -8,10 +8,12 @@ header {
     box-shadow: 0 2px 2px #00000069;
     background-color: #ca1cca;
 
-    .navigation {
+    .navigation-link {
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-around;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex: 1;
 
 
         .active {
@@ -23,6 +25,18 @@ header {
 main {
     min-height: 50rem;
     padding: 2rem 0;
+
+    Paper {
+        padding: 20rem;
+        margin-top: 10rem;
+        margin-bottom: 10rem;
+    }
+
+    // img {
+    //     margin: -1rem;
+    //     width: 50%;
+    //     height: 100%;
+    // }
 }
 
 footer {
