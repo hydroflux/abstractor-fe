@@ -2,12 +2,11 @@ import React from 'react'
 
 import { Route, Switch } from 'react-router-dom'
 
-export default function Navigation({ routes }) {
+export default function PageNavigation({ routes }) {
 
-    const renderRoutes = () => {
+    const renderRoutePages = () => {
         return (
             routes.map( ({ title, path, component: Component , ...props }) => {
-                
                 const routePageKey = `${title.toLowerCase()}-page-key`
 
                 return <Route exact key={routePageKey} path={path} render={ ( routerProps ) => <Component {...routerProps} {...props} /> } />
@@ -18,7 +17,7 @@ export default function Navigation({ routes }) {
     return (
         <div className="page-route">
             <Switch>
-                { renderRoutes()}
+                { renderRoutePages()}
             </Switch>
         </div>
     )

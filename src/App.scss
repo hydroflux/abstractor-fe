@@ -1,0 +1,31 @@
+.App {
+    text-align: center;
+    font-family: Avenir Next, sans-serif;
+  }
+
+header {
+    height: 4rem;
+    box-shadow: 0 2px 2px #00000069;
+    background-color: #ca1cca;
+
+    .navigation {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+
+
+        .active {
+            color: blue;
+        }
+    }
+}
+
+main {
+    min-height: 50rem;
+    padding: 2rem 0;
+}
+
+footer {
+    height: 3rem;
+    box-shadow: 0 -2px 3px #00000069;
+}

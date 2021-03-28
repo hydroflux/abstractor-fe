@@ -1,4 +1,4 @@
-import './index.css';
+import './App.css';
 
 import Header from './containers/header/Header';
 import Footer from './containers/footer/Footer';
@@ -16,6 +16,9 @@ function App() {
 
   const [ abstraction , setAbstraction ] = useState({})
 
+  const [ loggedIn , setLogin ] = useState(false)
+  const toggleLogin = () => setLogin(!loggedIn)
+
   const routes = [
     { title: `Home`, path: `/home`, component: Home },
     { title: `Submit`, path: `/submit`, component: Submit },
@@ -24,8 +27,14 @@ function App() {
 
   return (
     <div className="App">
-      <Header routes={routes} />
-      <Main routes={routes} abstract={abstraction} set={setAbstraction}/>
+      <Header routes={routes} loggedIn={loggedIn}/>
+      <Main 
+        toggleLogin={toggleLogin}
+        loggedIn={loggedIn}
+        routes={routes}
+        setAbstraction={setAbstraction}
+        abstract={abstraction}
+      />
       <Footer/>
     </div>
   );

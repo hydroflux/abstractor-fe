@@ -1,10 +1,18 @@
 import React from 'react'
-import Navigation from '../../components/Navigation'
+import SignIn from '../../components/SignIn'
+import PageNavigation from '../../components/PageNavigation'
 
-export default function Main({ routes }) {
+export default function Main({ routes , loggedIn, toggleLogin }) {
+
+    const renderMain = () => {
+        return (
+            loggedIn ? <PageNavigation routes={ routes }/> : <SignIn toggleLogin={toggleLogin}/>
+            )
+    }
+
     return (
         <main>
-            <Navigation routes={ routes }/>
+            { renderMain() }
         </main>
     )
 }
