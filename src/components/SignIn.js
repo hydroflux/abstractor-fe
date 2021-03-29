@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,19 +11,8 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Copyright from './Copyright';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        HydroFlux LLC
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -45,7 +34,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn({ toggleLogin }) {
+export default function SignIn({ loginUser, history }) {
+  
+  const [ formData , setFormData ] = useState({
+    username: '',
+    password: ''
+  })
+
+  const handleChange = event => {
+    setFormData({
+        ...formData,
+        [event.target.name]: event.target.value
+    })
+  }
+
+  const submitLogin = event => {
+    event.preventDefault()
+    loginUser( formData, history )
+  }
+  
   const classes = useStyles();
 
   return (
@@ -69,6 +76,7 @@ export default function SignIn({ toggleLogin }) {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={handleChange}
           />
           <TextField
             variant="outlined"
@@ -80,6 +88,7 @@ export default function SignIn({ toggleLogin }) {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={handleChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -91,18 +100,18 @@ export default function SignIn({ toggleLogin }) {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={toggleLogin}
+            onClick={submitLogin}
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link to={"/"} variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link to={"/"} variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

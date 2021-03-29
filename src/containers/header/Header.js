@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-bootstrap'
 import CreateAbstraction from '../../components/CreateAbstraction'
 
 export default function Header({ routes , loggedIn }) {
@@ -17,11 +17,11 @@ export default function Header({ routes , loggedIn }) {
         <header>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="headline" color="inherit">
+                    <Typography variant="h5" color="inherit">
                         Abstractor                        
                     </Typography>
                     <CreateAbstraction />
-                    {/* { renderRouteNavigation() } */}
+                    { renderRouteNavigation() }
                 </Toolbar>
             </AppBar>
         </header>

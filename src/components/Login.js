@@ -1,10 +1,10 @@
 import React from 'react'
 import SignIn from './SignIn'
 
-export default function Login() {
+export default function Login({ loginUser , ...props }) {
     return (
-        <div>
-            <SignIn/>
-        </div>
+        <section>
+            <SignIn loginUser={loginUser} {...props}/>
+        </section>
     )
 }

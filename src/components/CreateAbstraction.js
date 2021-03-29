@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { TextField } from '@material-ui/core';
 
-const backendURL = `http://localhost:3000`
+const backendURL = `http://localhost:8000`
 const abstractionURL = `${backendURL}/abstractions`
 
 const parseHTTPResponse = response => response.json() 
@@ -28,17 +28,18 @@ export default function CreateAbstraction({ setAbstraction, abstraction }) {
 
       console.log(newAbstraction)
 
-      // fetch( abstractionURL, {
-      //     method: 'POST',
-      //     headers: {
-      //         Accept: 'application/json',
-      //         'Content-Type': 'application/json'
-      //     },
-      //     body: JSON.stringify( newAbstraction )
-      // })
-      //     .then( parseHTTPResponse )
-      //     .then( newAbstraction => setAbstraction([ ...abstraction, setAbstraction ])) 
+      fetch( abstractionURL, {
+          method: 'POST',
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify( newAbstraction )
+      })
+          .then( parseHTTPResponse )
+          .then( newAbstraction => setAbstraction([ ...abstraction, setAbstraction ])) 
 
+      console.log(abstraction)
       setClientInformation('')
       setLegalDescription('')
       setUploadFile('')
@@ -46,7 +47,7 @@ export default function CreateAbstraction({ setAbstraction, abstraction }) {
 
   return (
     <>
-      <Button variant="fab" color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" color="primary" onClick={handleClickOpen}>
         <AddCircleIcon />
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -91,12 +92,12 @@ export default function CreateAbstraction({ setAbstraction, abstraction }) {
         <DialogActions>
           <Button
             color="primary"
-            variant="raised"
+            variant="contained"
             onClick={handleClose}
           > Cancel </Button>
           <Button
             color="primary" 
-            variant="raised"
+            variant="contained"
             onClick={handleSubmit}
           > Create </Button>
         </DialogActions>
