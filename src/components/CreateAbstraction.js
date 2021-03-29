@@ -9,7 +9,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { TextField } from '@material-ui/core';
 
 const backendURL = `http://localhost:8000`
-const abstractionURL = `${backendURL}/abstractions`
+const abstractionURL = `${backendURL}/execute/`
 
 const parseHTTPResponse = response => response.json() 
 
@@ -32,14 +32,17 @@ export default function CreateAbstraction({ setAbstraction, abstraction }) {
           method: 'POST',
           headers: {
               Accept: 'application/json',
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify( newAbstraction )
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${localStorage.token}`,
+            },
+          body: JSON.stringify( newAbstraction ),
+          // credentials: 'include'
       })
           .then( parseHTTPResponse )
-          .then( newAbstraction => setAbstraction([ ...abstraction, setAbstraction ])) 
+          .then( console.log )
+          // .then( newAbstraction => setAbstraction([ ...abstraction, setAbstraction ])) 
 
-      console.log(abstraction)
+      // console.log(abstraction)
       setClientInformation('')
       setLegalDescription('')
       setUploadFile('')
@@ -48,7 +51,7 @@ export default function CreateAbstraction({ setAbstraction, abstraction }) {
   return (
     <>
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
-        <AddCircleIcon />
+        <AddCircleIcon edge="end"/>
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Create A New Abstraction</DialogTitle>

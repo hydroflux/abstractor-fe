@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import Login from './Login'
 import PrivateRoute from './PrivateRoute'
 
-export default function PageNavigation({ routes, loginUser, ...props }) {
+export default function PageNavigation({ isLoggedIn, loginUser, routes, ...props }) {
 
     const renderLoginRoute = () => {
         return <Route exact path='/' render={ ( props ) => <Login {...props} loginUser={loginUser}/>} />
@@ -14,7 +14,14 @@ export default function PageNavigation({ routes, loginUser, ...props }) {
         return (
             routes.map( ({ title, path, component: Component , ...props }) => {
                 const routePageKey = `${title.toLowerCase()}-page-key`
-                return <PrivateRoute exact key={routePageKey} path={path} render={ ( routerProps ) => <Component {...routerProps} {...props} /> } />
+                return (
+                    <PrivateRoute
+                        exact
+                        key={routePageKey}
+                        path={path}
+                    >{<Component {...props} />}
+                    </PrivateRoute>
+                )
             })
         )
     }
@@ -23,7 +30,7 @@ export default function PageNavigation({ routes, loginUser, ...props }) {
         <div className="page-route">
             <Switch>
                 { renderLoginRoute() }
-                { renderPrivateRoutes()}
+                { isLoggedIn ? renderPrivateRoutes() : null }
             </Switch>
         </div>
     )

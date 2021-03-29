@@ -5,10 +5,8 @@ import Footer from './containers/footer/Footer';
 import Main from './containers/main/Main';
 
 import Home from './containers/main/Home';
-import Review from './containers/main/Review';
 
-import { useState } from 'react'
-import CreateAbstraction from './components/CreateAbstraction';
+import { useEffect, useState } from 'react'
 import Login from './components/Login';
 
 function App() {
@@ -34,8 +32,13 @@ function App() {
       })
       .then(() => setIsLoggedIn(true))
       .then(() => history.push("/home"))
-      console.log(isLoggedIn)
   }
+
+  useEffect(() => {
+    if (localStorage.token){
+      console.log(isLoggedIn)
+    }
+  }, [isLoggedIn])  
 
   const logoutUser = () => {
     localStorage.clear()
@@ -44,15 +47,15 @@ function App() {
 
   const routes = [
     { title: `Login`, path: `/`, component: Login },
-    { title: `Home`, path: `/home`, component: Home },
-    { title: `Create`, path: `/submit`, component: CreateAbstraction, abstraction, setAbstraction },
-    { title: `Review`, path: `/review`, component: Review }
+    { title: `Home`, path: `/home`, component: Home, setAbstraction, abstraction},
+    // { title: `Create`, path: `/submit`, component: CreateAbstraction, abstraction, setAbstraction }
   ]
 
   return (
     <div className="App">
-      <Header routes={routes} isLoggedIn={isLoggedIn} logoutUser={logoutUser}/>
+      <Header routes={routes} isLoggedIn={isLoggedIn} logoutUser={logoutUser} abstraction={abstraction} setAbstraction={setAbstraction}/>
       <Main 
+        isLoggedIn={isLoggedIn}
         loginUser={loginUser}
         routes={routes}
       />

@@ -8,6 +8,11 @@ header {
   box-shadow: 0 2px 2px #00000069;
   background-color: #ca1cca;
 }
+header .menu-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 header .navigation-link {
   display: flex;
   flex-flow: row wrap;
@@ -20,18 +25,50 @@ header .navigation-link .active {
 }
 
 main {
-  min-height: 50rem;
+  min-height: 45rem;
   padding: 2rem 0;
 }
-main Paper {
-  padding: 20rem;
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+main .home {
+  display: flex;
+}
+main .home .grid-pane {
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 2rem;
+}
+main .home .grid-pane .grid-paper {
+  height: 100%;
+}
+main .home .grid-pane img {
+  max-width: 100%;
+  border-radius: 1rem;
+  transition: transform 1s, backdrop-filter 1s;
+}
+main .home .grid-pane img:hover {
+  transform: scale(1.05);
+}
+
+.submit-abstraction .text-input {
+  width: 60%;
+}
+.submit-abstraction .upload-button {
+  width: 60%;
+  margin: 1rem;
+}
+.submit-abstraction .execute-form-button {
+  margin: 1rem;
+  padding: 0.5rem 2rem;
 }
 
 footer {
   height: 3rem;
   box-shadow: 0 -2px 3px #00000069;
+  padding: 3rem 5rem;
+  text-align: start;
+}
+footer .disclaimer {
+  display: flex;
 }
 
 /*# sourceMappingURL=App.css.map */

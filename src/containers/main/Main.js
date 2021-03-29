@@ -1,16 +1,10 @@
 import PageNavigation from '../../components/PageNavigation'
 
-export default function Main({ loginUser, routes }) {
-
-    // const handleSignIn = () => {
-    //     return (
-    //         loggedIn ? renderMain() : <SignIn toggleLogin={toggleLogin}/>
-    //         )
-    // }
+export default function Main({ isLoggedIn, loginUser, routes }) {
 
     const renderMain = () => {
         return (
-            <PageNavigation loginUser={loginUser} routes={ routes }/>
+            <PageNavigation isLoggedIn={isLoggedIn} loginUser={ loginUser } routes={ routes }/>
         )
     }
 

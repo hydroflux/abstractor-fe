@@ -8,13 +8,19 @@ header {
     box-shadow: 0 2px 2px #00000069;
     background-color: #ca1cca;
 
+    .menu-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        // flex: 2;
+    }
+
     .navigation-link {
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-end;
         align-items: flex-end;
         flex: 1;
-
 
         .active {
             color: blue;
@@ -23,23 +29,59 @@ header {
 }
 
 main {
-    min-height: 50rem;
+    min-height: 45rem;
     padding: 2rem 0;
 
-    Paper {
-        padding: 20rem;
-        margin-top: 10rem;
-        margin-bottom: 10rem;
+    .home {
+        display: flex;
+
+        .grid-pane {
+            padding: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 2rem;
+
+            .grid-paper {
+                height: 100%;
+            }
+            
+            img {
+                max-width: 100%;
+                border-radius: 1rem;
+                transition: transform 1s, backdrop-filter 1s;
+                
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+.submit-abstraction {
+    .text-input {
+        width: 60%;
     }
 
-    // img {
-    //     margin: -1rem;
-    //     width: 50%;
-    //     height: 100%;
-    // }
+    .upload-button {
+        width: 60%;
+        margin: 1rem;
+    }
+
+    .execute-form-button {
+        margin: 1rem;
+        padding: 0.5rem 2rem;
+    }
 }
 
 footer {
     height: 3rem;
     box-shadow: 0 -2px 3px #00000069;
+    padding: 3rem 5rem;
+    text-align: start;
+    // width: 95%;
+
+    .disclaimer {
+        display: flex;
+    }
 }
