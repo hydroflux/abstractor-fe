@@ -11,7 +11,7 @@ export default function CreateAbstraction({ setAbstraction, abstraction }) {
 
   const [ legalDescription , setLegalDescription ] = useState('')
   const [ clientInformation , setClientInformation ] = useState('')
-  // const [ countyInformation , setCountyInformation ] = useState('')
+  // const [ countyInformation , setCountyInformation ] = useState('') 
   const [ uploadFile, setUploadFile ] = useState({})
 
   const handleSubmit = event => {
