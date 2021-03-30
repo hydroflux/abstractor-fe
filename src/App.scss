@@ -29,7 +29,7 @@ header {
 }
 
 main {
-    min-height: 45rem;
+    min-height: 20rem;
     padding: 2rem 0;
 
     .home {
@@ -43,6 +43,29 @@ main {
 
             .grid-paper {
                 height: 100%;
+
+                .submit-abstraction {
+                    padding: 3rem 2rem;
+                    
+                    .form-inputs {
+                        padding-top: 2rem;
+
+                        .form-input {
+                            width: 60%;
+                        }
+                    
+                        .upload-button {
+                            margin-top: 10rem;
+                            width: 60%;
+                            margin: 1rem;
+                        }
+                    
+                        .execute-form-button {
+                            margin: 1rem;
+                            padding: 0.5rem 2rem;
+                        }
+                    }
+                }
             }
             
             img {
@@ -55,22 +78,6 @@ main {
                 }
             }
         }
-    }
-}
-
-.submit-abstraction {
-    .text-input {
-        width: 60%;
-    }
-
-    .upload-button {
-        width: 60%;
-        margin: 1rem;
-    }
-
-    .execute-form-button {
-        margin: 1rem;
-        padding: 0.5rem 2rem;
     }
 }
 

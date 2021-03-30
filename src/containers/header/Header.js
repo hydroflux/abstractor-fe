@@ -1,14 +1,14 @@
 import { AppBar, Button, Toolbar, Typography } from '@material-ui/core'
 // import { NavLink } from 'react-bootstrap'
-import CreateAbstraction from '../../components/CreateAbstraction'
+// import CreateAbstraction from '../../components/CreateAbstraction'
   
   export default function Header({ routes , isLoggedIn, logoutUser, setAbstraction, abstraction }) {
       const renderMenuButtons = () => {
           if (isLoggedIn){
               return(
                 <div className="menu-buttons">
-                    <Button color="inherit" className="button" onClick={logoutUser}>Logout</Button>
-                    <CreateAbstraction className="button" setAbstraction={setAbstraction} abstraction={abstraction}/>
+                    <Button color="inherit" className="button" href="/" onClick={logoutUser}>Logout</Button>
+                    {/* <CreateAbstraction className="button" setAbstraction={setAbstraction} abstraction={abstraction}/> */}
                 </div>
               )
           } else { return null }

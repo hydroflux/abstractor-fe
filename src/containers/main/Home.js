@@ -1,5 +1,5 @@
 import { Grid, Paper } from '@material-ui/core'
-import AbstractionForm from '../../components/AbstractionForm'
+import CreateAbstraction from '../../components/CreateAbstraction'
 
 export default function Home({setAbstraction, abstraction}) {
 
@@ -16,7 +16,7 @@ export default function Home({setAbstraction, abstraction}) {
                 </Grid>
                 <Grid className="grid-pane" item sm={5}>
                     <Paper className="grid-paper">
-                        <AbstractionForm className="form" setAbstraction={setAbstraction} abstraction={abstraction}/>
+                        <CreateAbstraction className="form" setAbstraction={setAbstraction} abstraction={abstraction}/>
                     </Paper>
                 </Grid>
             </Grid>
